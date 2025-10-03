@@ -1,5 +1,5 @@
 function Calculator() {
-    return ( <div></div> );
+    return ( <div>footer</div> );
 }
 
 export default Calculator;
