@@ -37,7 +37,7 @@ function ProductListPage() {
                 setProducts(data || []);
                 setLoading(false);
             })
-            .catch((error) => {
+            .catch(() => {
                 console.log('Looix');
                 setLoading(false);
             });

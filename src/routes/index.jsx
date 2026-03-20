@@ -2,29 +2,35 @@ import HomePage from '../pages/HomePage';
 import ProductListPage from '../pages/ProductListPage';
 import ProductDetailPage from '../pages/ProductDetailPage';
 import AboutUs from '../pages/AboutUs';
-import SearchResultsPage from '../components/SearchResultsPage';
+import SearchResultsPage from '../pages/SearchResultsPage';
+import MainLayout from '../layouts/MainLayout';
+
 const publicRoutes = [
     {
         path: '/',
-        component: HomePage,
+        element: <HomePage />,
+        layout: MainLayout,
     },
     {
-        path: '/productdetailpage/:id',
-        component: ProductDetailPage,
+        path: '/products',
+        element: <ProductListPage />,
+        layout: MainLayout,
     },
     {
-        path: '/productlistpage',
-        component: ProductListPage,
+        path: '/products/:id',
+        element: <ProductDetailPage />,
+        layout: MainLayout,
     },
     {
         path: '/about',
-        component: AboutUs,
+        element: <AboutUs />,
+        layout: MainLayout,
     },
     {
         path: '/search',
-        component: SearchResultsPage
-    }
+        element: <SearchResultsPage />,
+        layout: MainLayout,
+    },
 ];
 
-const privateRoutes = [];
-export { publicRoutes, privateRoutes };
+export { publicRoutes };

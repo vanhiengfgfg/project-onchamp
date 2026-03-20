@@ -1,19 +1,21 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from './routes';
-import Header from './components/Header';
-
+import { Fragment } from 'react';
 function App() {
     return (
         <BrowserRouter>
-            <Header/>
             <Routes>
-                {publicRoutes.map((route, index) => (
-                    <Route
-                        key={index}
-                        path={route.path}
-                        element={<route.component />}
-                    />
-                ))}
+                {publicRoutes.map((route, index) => {
+                    const Layout = route.layout || Fragment;
+
+                    return (
+                        <Route
+                            key={index}
+                            path={route.path}
+                            element={<Layout>{route.element}</Layout>}
+                        />
+                    );
+                })}
             </Routes>
         </BrowserRouter>
     );
